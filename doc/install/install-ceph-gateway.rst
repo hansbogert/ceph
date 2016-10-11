@@ -510,24 +510,24 @@ Execute the following steps:
 
 #. Add the following contents to the file::
 
-    import boto
     import boto.s3.connection
 
-    access_key = 'I0PJDPCIYZ665MW88W9R'
-    secret_key = 'dxaXZ8U90SXydYzyS5ivamEP20hkLSUViiaR+ZDA'
+    access_key = 'R4MPHYUQ3UWY16KGPU63'
+    secret_key = 'Hix0825nTBe4eDKGX30TuCFEKMAeB7X1FOXYjSl4'
     conn = boto.connect_s3(
-            aws_access_key_id = access_key,
-            aws_secret_access_key = secret_key,
-            host = '{hostname}', port = {port},
-            is_secure=False, calling_format = boto.s3.connection.OrdinaryCallingFormat(),
-            )
+            aws_access_key_id=access_key,
+            aws_secret_access_key=secret_key,
+            host='ogw.dev.nutsservices.local', port=7480,
+            is_secure=False, calling_format=boto.s3.connection.OrdinaryCallingFormat(),
+           )
 
     bucket = conn.create_bucket('my-new-bucket')
-        for bucket in conn.get_all_buckets():
-                print "{name} {created}".format(
-                        name = bucket.name,
-                        created = bucket.creation_date,
-     )
+    for bucket in conn.get_all_buckets():
+        print "{name} {created}".format(
+            name=bucket.name,
+            created=bucket.creation_date,
+        )
+
 
    Replace ``{hostname}`` with the hostname of the host where you have
    configured the gateway service i.e., the ``gateway host``. Replace {port}
